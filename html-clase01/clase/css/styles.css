@@ -1,0 +1,32 @@
+/* Aca va el css */
+/* Selectores */
+p{
+
+}
+#titulo-ppal{
+
+}
+.destacado{
+  color: red;
+  font-size: 20px;
+}
+
+.destacado{
+  color: blue;
+}
+
+.mateo{
+  font-size: 30px;
+}
+
+.mateo a{
+  text-decoration: none;
+  color: red;
+}
+p #ppal .saludo{
+
+}
+
+
+
+/**/

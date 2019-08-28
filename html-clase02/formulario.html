@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles.css">
+    <title></title>
+  </head>
+  <body>
+    <h1>Formulario</h1>
+
+    <form class="" action="index.html" method="get">
+      <div class="form-group">
+        <label for="nombre">Nombre: </label>
+        <input id="nombre" type="text" name="nombre" value="" placeholder="nombre" required>
+        <small class="required">El campo es obligatorio</small>
+      </div>
+      <div class="form-group">
+        <label for="email">Email: </label>
+        <input id="email" type="email" name="email" value="" placeholder="email" required>
+        <small class="required">El campo es obligatorio</small>
+      </div>
+      <div class="form-group">
+        <label for="password">Password: </label>
+        <input id="password" type="password" name="password" value="" placeholder="password" required>
+        <small class="required">El campo es obligatorio</small>
+      </div>
+      <select class="" name="pais">
+        <option value="ar">Argentina</option>
+        <option value="br">Brasil</option>
+        <option value="ven">Venezuela</option>
+        <option value="uru">Uruguay</option>
+      </select>
+
+      <button type="submit">Enviar</button>
+      <button type="reset">Limpiar</button>
+    </form>
+
+  </body>
+</html>

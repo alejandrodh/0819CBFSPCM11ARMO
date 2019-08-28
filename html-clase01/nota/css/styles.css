@@ -1,0 +1,36 @@
+/* Estilos principales*/
+body{
+  width: 900px;
+  font-size: 18px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body,
+p,
+h3 {
+font-size:18px;
+}
+
+.fontSize{
+  font-size:18px
+}
+
+p a
+ {
+  color: green
+}
+
+.main-title{
+  font-size: 37px;
+  font-family: Tahoma;
+  color: #000;
+  line-height: 46px;
+}
+p{
+  font-size: 18px;
+}
+h3{
+  font-size: 18px;
+  color: #ccc;
+}

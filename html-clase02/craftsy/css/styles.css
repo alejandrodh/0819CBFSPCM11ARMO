@@ -1,0 +1,188 @@
+/* Reseteo general */
+* { /* Selector universal*/
+  box-sizing: border-box;
+}
+
+ul, ol{
+  padding: 0;
+  margin: 0;
+}
+li{
+  list-style-type: none;
+}
+
+a{
+  text-decoration: none;
+  color: #000;
+}
+
+body{
+  width: 1140px;
+  margin: 20px auto; /* Centrar un bloque.*/
+  background-image: url(../img/bg-2.png);
+}
+main{
+  overflow: hidden;
+}
+.text-right{
+  text-align: right;
+}
+/* Header */
+
+header{
+  background: #ef4c27;
+  overflow: hidden;
+  padding: 5px 10px;
+  /* width: 1140px; */
+  margin-bottom: 20px;
+}
+.logo, nav{
+  float: left;
+}
+.access{
+  float:right;
+  overflow: hidden;
+}
+.menu, nav{
+  overflow: hidden;
+}
+.menu li, .access li{
+  float: left;
+  text-transform: uppercase;
+  color: #fff;
+  margin-left: 20px;
+  line-height: 39px;
+}
+.access a{
+  color: #fff;
+}
+
+/* Productos*/
+
+.products{
+  background: #fff;
+  overflow: hidden;
+  width: 800px;
+  float: left;
+  margin-right: 20px;
+}
+.product{
+  margin: 10px;
+  width: 380px;
+  float: left;
+}
+.product img{
+  width: 100%;
+}
+.product a{
+  color: #fff;
+  text-transform: uppercase;
+  padding: 10px 15px;
+  background: #ef4c27;
+  display: inline-block;
+}
+
+/* Columna derecha*/
+.right-col{
+  width: 320px;
+  float: left;
+}
+.right-col h2{
+  background: #fff;
+  border: 1px solid skyblue;
+  padding: 5px;
+}
+.right-col h2:first-child{
+  margin-top:0;
+}
+.servicios, .ads{
+  background: #fff;
+  border: 1px solid skyblue;
+}
+.servicio{
+  border-bottom: 1px solid skyblue;
+  overflow: hidden;
+  padding: 5px;
+}
+.servcio:last-child{
+  border: none;
+}
+.servicio img{
+  float: left;
+  margin-right: 10px;
+}
+.ads article{
+  text-align: center;
+  margin:10px;
+}
+.ads article img{
+  width: 100%;
+}
+
+
+/* Login y Registro */
+
+.login h1, .register h1{
+  text-align: center;
+  text-transform: uppercase;
+}
+.login form, .register form{
+  width: 350px;
+  margin: 0 auto;
+}
+.register form{
+  overflow: hidden;
+}
+.form-group{
+  margin-bottom: 15px;
+}
+.login input, .register input{
+  width: 100%;
+  line-height: 20px;
+}
+.width-auto,
+input.width-auto{
+  width: auto;
+}
+.alert{
+  color: #ef4c27;
+}
+
+.submit{
+  color: #fff;
+  padding: 6px 25px;
+  border-radius: 6px;
+  background: #4169e1c4;
+  border: 1px solid #4d6eec96;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**/

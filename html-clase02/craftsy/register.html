@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Craftsy | Registro</title>
+  </head>
+  <body>
+    <header>
+      <a href="index.html">
+        <img class="logo" src="./img/logo.png" alt="">
+      </a>
+      <nav>
+        <ul class="menu">
+          <li>Smartphones</li>
+          <li>Tablets</li>
+          <li>Notebooks</li>
+        </ul>
+      </nav>
+      <ul class="access">
+        <li>
+          <a href="login.html">Login</a></li>
+        <li>
+          <a href="register.html">Registro</a>
+        </li>
+      </ul>
+    </header>
+    <main class="register">
+      <h1>regsitrate</h1>
+      <form class="" action="register.html" method="get">
+        <div class="form-group">
+          <label for="name">Nombre</label>
+          <input id="name" type="text" name="name" value="" placeholder="Ingresá tu nombre">
+          <small class="alert">Obligatorio.</small>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input id="email" type="text" name="email" value="" placeholder="Email">
+          <small class="alert">Obligatorio.</small>
+        </div>
+        <div class="form-group">
+          <label for="password">Contraseña</label>
+          <input id="password" type="password" name="password" value="" placeholder="Password">
+          <small class="alert">Obligatorio.</small>
+        </div>
+        <h3>País de nacimiento</h3>
+        <div class="">
+          <select class="" name="country" required>
+            <option value="" selected>Por favor elija un pais</option>
+            <option value="ch">Chile</option>
+            <option value="ar">Argentina</option>
+            <option value="ur">Uruguay</option>
+            <option value="br">Brasil</option>
+            <option value="ven">Venezuela</option>
+          </select>
+        </div>
+        <small class="alert">Obligatorio.</small>
+
+        <h3>Género</h3>
+        <input class="width-auto" id="masc" type="radio" name="gender" value="m">
+        <label for="masc">Masculino</label>
+        <input class="width-auto" id="fem" type="radio" name="gender" value="f">
+        <label for="fem">Femenino</label>
+        <input class="width-auto" id="pnd" type="radio" name="gender" value="pnd">
+        <label for="pnd">Prefiero no <decirlo></decirlo></label>
+
+        <h3>Hobbies</h3>
+        <input class="width-auto" id="guitarra" type="checkbox" name="hobbies" value="guitarra">
+        <label for="guitarra">Guitarra</label>
+        <input class="width-auto" id="futbol" type="checkbox" name="hobbies" value="futbol">
+        <label for="futbol">Fútbol</label>
+        <input class="width-auto" id="tenis" type="checkbox" name="hobbies" value="tenis">
+        <label for="tenis">Tenis</label>
+
+        <h3>Dejános tus comentarios</h3>
+        <textarea name="comentearios" rows="8" cols="50"></textarea>
+
+        <div class="form-group">
+          <input class="width-auto" id="tyc" type="checkbox" name="tyc" value="ok">
+          <label for="tyc">Acepto los términos y condiciones.</label>
+        </div>
+
+        <button class="submit" type="submit">Regsitrarme</button>
+        <button class="submit" type="reset">Cancelar</button>
+      </form>
+
+
+
+
+    </main>
+
+
+  </body>
+</html>
