@@ -1,0 +1,74 @@
+/* Resets Generales */
+*{
+  box-sizing:border-box
+}
+ul, ol{
+  padding: 0;
+}
+li{
+  list-style-type: none;
+}
+a, a:hover{
+  text-decoration: none;
+  color: #000;
+}
+
+/* Main styles */
+body{
+  background-image: url(../images/bg-body.png);
+}
+.container {
+  border: 1px solid #ccc;
+  padding: 20px;
+}
+.card{
+  background: #fff;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  padding: 30px;
+}
+.card-image {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-image img{
+  border-radius: 50%;
+  box-shadow: 0 0 15px 6px #ccc;
+  margin-bottom: 20px;
+  width: 100%;
+}
+.social-media{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+.social-media a{
+  color:#fff;
+  padding: 20px;
+  font-size: 22px;
+  background-color: royalblue;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+
+
+
+
+
+
+
+
+
+/* */
