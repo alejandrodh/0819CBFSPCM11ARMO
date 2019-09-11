@@ -26,8 +26,40 @@ $respuesta = ($edad === 19) ? "Soy mayor de edad" : "Soy menor de edad";
 echo $respuesta;
 
 
-echo "<h1> If Ternario </h1>";
+echo "<h1> Switch </h1>";
 
+$nota = rand(0,10);
+
+echo "la nota es: $nota <br>";
+
+switch($nota){
+  case false:
+     echo "Saque cero";
+     break;
+  case $nota <= 4:
+  // case 2:
+  // case 3:
+  // case 4:
+    echo "Reprobado";
+    break;
+  case 5:
+  case 6:
+    echo "safamos";
+    break;
+  case 7:
+    echo "bien el 7.";
+    break;
+  case 8:
+  case 9:
+    echo "Bien ahí.";
+    break;
+  case 10:
+    echo "Aplausos";
+    break;
+  // default:
+  //   echo "Saque cero";
+  //   break;
+}
 
 
 
