@@ -1,8 +1,9 @@
 <?php
 include "functions.php";
-var_dump($_SESSION);
+//var_dump($_SESSION); //Para ver que realmente está cargado el dato en sesión.
 
 if(isset($_COOKIE['email'])){
+  //Si está seteada la cookie es porque el usuario tildó recordarme. Vamos a loguerarlo desde la cookie.
   loguearUsuario($_COOKIE['email']);
 }
 

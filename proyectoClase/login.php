@@ -1,4 +1,17 @@
 <?php
+
+// Proceso de login
+//===========================
+// 1) Chequear que el formulario este cargando por POST.
+// 2) Validar los datos del formualario.
+//  2.1) Si el formulario no valida vamos a mostrar los errores al usuario.
+//  2.2) No vamos a persistir datos correctos por cuestiones de seguridad. El usuario debe colocar correctamente ambos datos.
+// 3) Si no hay $errores:
+//  3.1) Loguearemos al usuario.
+//  3.2) Si tildó la casilla "recordarme" cargaremos el email en una cookie.
+//  3.3) Redirigimos al usuario a la página de inicio mostrando cambios por estar logueado.
+
+
 include "functions.php";
 
 if($_POST){
@@ -6,7 +19,7 @@ if($_POST){
   var_dump($errores);
 
   if(!$errores){
-    loguearUsuario($_POST['email']);
+    loguearUsuario($_POST['email']); //Logueamos al usuario y lo mandamos logueado al home.
 
     header("Location:index.php");
     exit; //Siempre después de una redirección.

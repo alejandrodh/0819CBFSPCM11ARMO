@@ -6,9 +6,10 @@
   //  2.1) Si el formulario no valida vamos a mostrar los errores al usuario.
   //  2.2) Persistir para el usuario los datos que si completo correctamente.
   // 3) Si no hay $errores:
-  //  3.1) Crear al usario y guardarlo en json
-  //  3.2) Guardar su imagen de perfil
-  //  3.3) Redirigir al usuario a la página de inicio.
+  //  3.1) Crear al usario
+  //  3.2) Guardarlo en json
+  //  3.3) Guardar su imagen de perfil
+  //  3.4) Redirigir al usuario a la página de inicio.
 
 include "functions.php";
 $errores = [];
