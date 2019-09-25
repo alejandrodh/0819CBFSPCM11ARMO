@@ -6,21 +6,37 @@
   //  2.1) Si el formulario no valida vamos a mostrar los errores al usuario.
   //  2.2) Persistir para el usuario los datos que si completo correctamente.
   // 3) Si no hay $errores:
-  //  3.1) Crear al usario
+  //  3.1) Crear al usario y guardarlo en json
   //  3.2) Guardar su imagen de perfil
   //  3.3) Redirigir al usuario a la página de inicio.
 
 include "functions.php";
 $errores = [];
 $userNameOk = "";
+$emailOk = "";
 
 if($_POST){
   $errores = validarRegistro($_POST);
   //var_dump($_POST, $errores);
 
-  $userNameOk = trim($_POST['userName']);
+  $userNameOk = trim($_POST['userName']); //El control lo hacemos en el campo input.
+  $emailOk = trim($_POST['email']);
 
 
+  if(!$errores){
+    $usuario = crearUsuario();
+    // var_dump($usuario);
+    // exit;
+    guardarUsuario($usuario);
+
+    // var_dump($_FILES);
+    // exit;
+    $ext = pathinfo($_FILES["avatar"]['name'], PATHINFO_EXTENSION);
+    move_uploaded_file($_FILES["avatar"]['tmp_name'], "avatar/". $_POST['userName']. "." . $ext);
+
+    header("Location:index.php");
+    exit;
+  }
 
 }
 
@@ -43,11 +59,13 @@ if($_POST){
       <div class="row">
         <h1 class="col-md-4 offset-md-4">Registrate</h1>
         <form class="col-md-4 offset-md-4" action="register.php" method="post" enctype="multipart/form-data">
+          <?php /*?>
           <ul class="text-danger">
             <?php foreach ($errores as $error):?>
               <li><?= $error  ?></li>
             <?php endforeach ?>
           </ul>
+          */ ?>
           <div class="form-group">
             <label for="userName">User name</label>
             <?php  if(!isset($errores['userName'])): ?>
@@ -63,27 +81,51 @@ if($_POST){
           </div>
           <div class="form-group">
             <label for="email">Email</label>
-            <input type="email" id="email" class="form-control" name="email" placeholder="Enter email" value="">
-            <small id="emailHelp" class="form-text text-danger">            </small>
+              <?php  if(!isset($errores['email'])): ?>
+                <input type="email" id="email" class="form-control" name="email" placeholder="Enter email" value="<?= $emailOk ?>">
+              <?php else: ?>
+                <input type="email" id="email" class="form-control" name="email" placeholder="Enter email" value="">
+              <?php endif ?>
+            <small id="emailHelp" class="form-text text-danger">
+              <?php if(isset($errores['email'])) :?>
+                <?= $errores['email'] ?>
+              <?php endif ?>
+            </small>
           </div>
           <div class="form-group">
             <label for="password">Password</label>
             <input type="password" id="password" class="form-control" name="password" placeholder="Password" value="">
-            <small id="emailHelp" class="form-text text-danger">           </small>
+            <small id="emailHelp" class="form-text text-danger">
+              <?php if(isset($errores['password'])) :?>
+                <?= $errores['password'] ?>
+              <?php endif ?>
+            </small>
           </div>
           <div class="form-group">
             <label for="retypePassword">Retype password</label>
             <input type="password" id="retypePassword" class="form-control" name="retypePassword" placeholder="Retype password" value="">
-            <small id="emailHelp" class="form-text text-danger">            </small>
+            <small id="emailHelp" class="form-text text-danger">
+              <?php if(isset($errores['retypePassword'])) :?>
+                <?= $errores['retypePassword'] ?>
+              <?php endif ?>
+             </small>
           </div>
           <div class="form-group">
             <label for="avatar">Imagen de perfil</label>
             <input name="avatar" type="file" id="avatar" class="form-control-file">
           </div>
           <div class="form-group form-check">
-            <input type="checkbox" class="form-check-input" name="tyc" id="tyc" value="tyc">
+            <?php if(isset($_POST['tyc'])): ?>
+                <input type="checkbox" class="form-check-input" name="tyc" id="tyc" value="tyc" checked>
+            <?php else: ?>
+                <input type="checkbox" class="form-check-input" name="tyc" id="tyc" value="tyc" >
+            <?php endif ?>
             <label for="tyc" class="form-check-label">Acepto los términos y condiciones.</label>
-            <small id="emailHelp" class="form-text text-danger">           </small>
+            <small id="emailHelp" class="form-text text-danger">
+              <?php if(isset($errores['tyc'])) :?>
+                <?= $errores['tyc'] ?>
+              <?php endif ?>
+             </small>
           </div>
           <button type="submit" class="btn btn-primary">Registrate</button>
           <a class="" href="index.php">Cancelar</a>

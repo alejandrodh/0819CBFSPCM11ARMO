@@ -50,3 +50,45 @@ function validarRegistro($datos){
 
   return $errores;
 }
+
+function nextId(){
+  $json = file_get_contents("db.json");
+  $usuarios = json_decode($json, true);
+
+  $lastUser = array_pop($usuarios['usuarios']);
+  $lastId = $lastUser['id'];
+
+  return $lastId + 1;
+}
+
+
+
+function crearUsuario(){
+  return [
+    "id" => nextId(), //tenemos que autoincrementar el nº
+    "username" => trim($_POST['userName']),
+    "email" => trim($_POST['email']),
+    "password" => password_hash($_POST['password'], PASSWORD_DEFAULT),
+  ];
+}
+
+function guardarUsuario($user){
+  $json = file_get_contents("db.json");
+  $usuarios = json_decode($json, true);
+  $usuarios['usuarios'][] = $user;
+
+  $json = json_encode($usuarios, JSON_PRETTY_PRINT);
+  file_put_contents("db.json", $json);
+
+}
+
+
+
+
+
+
+
+
+
+
+?>

@@ -1,0 +1,22 @@
+{
+    "usuarios": [
+        {
+            "id": 1,
+            "username": "ale",
+            "email": "ale@dh.com",
+            "password": "$2y$10$Hd35v8se0MIYhdzyeiCXuej8T5j6yNmgWWJSWJowLgelMFvSiqevq"
+        },
+        {
+            "id": 2,
+            "username": "ale",
+            "email": "ale@dh.com",
+            "password": "$2y$10$z4dwpMphD7rzejwJ1f1l8u71w1rikMhznsQwl9sdgbxYIXhr0YOaC"
+        },
+        {
+            "id": 3,
+            "username": "ale",
+            "email": "ale@dh.com",
+            "password": "$2y$10$C98meAMBT4qi.lpGdoU2yuY8uOMTaobFhkjdAPaYQLztanvoeDGsO"
+        }
+    ]
+}
