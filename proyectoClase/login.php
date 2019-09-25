@@ -1,3 +1,21 @@
+<?php
+include "functions.php";
+
+if($_POST){
+  $errores = validarLogin($_POST);
+  var_dump($errores);
+
+  if(!$errores){
+    loguearUsuario($_POST['email']);
+
+    header("Location:index.php");
+    exit; //Siempre después de una redirección.
+
+  }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>

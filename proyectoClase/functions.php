@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 function validarRegistro($datos){
   $errores = [];
@@ -24,9 +25,9 @@ function validarRegistro($datos){
     $errores['email'] = "El campo es obligatorio.";
   } else if(!filter_var($datosFinales['email'], FILTER_VALIDATE_EMAIL)){
     $errores['email'] = "Por favor ingrese un email en formato correcto.";
-  } // else if( existeUsuario($email) ){
-  //   $errores['email'] = "El email ya se encuentra registrado.";
-  // }
+  }  else if( existeUsuario($datosFinales['email']) ){
+     $errores['email'] = "El email ya se encuentra registrado.";
+   }
 
  //validar contraseña
   if(strlen($datosFinales['password']) == 0){
@@ -46,7 +47,6 @@ function validarRegistro($datos){
     if(!isset($datosFinales['tyc'])){
       $errores['tyc'] = "Por favor acepte los términos y condiciones.";
     }
-
 
   return $errores;
 }
@@ -82,9 +82,56 @@ function guardarUsuario($user){
 
 }
 
+function buscarUsuarioPorEmail($email){
+  $json = file_get_contents("db.json");
+  $usuarios = json_decode($json, true);
 
+  foreach ($usuarios['usuarios'] as $usuario) {
+    if($usuario['email']=== $email){
+      return $usuario;
+    }
+  }
+  return null;
+}
 
+function existeUsuario($email){
+  return buscarUsuarioPorEmail($email) !== null;
+}
 
+function validarLogin($datos){
+  $errores = [];
+
+  //validar email
+  if(strlen($datos['email']) == 0){
+    $errores['email'] = "El campo es obligatorio.";
+  } else if(!filter_var($datos['email'], FILTER_VALIDATE_EMAIL)){
+    $errores['email'] = "Por favor ingrese un email en formato correcto.";
+  } else if( !existeUsuario($datos['email']) ){
+    $errores['email'] = "El email no se encuentra registrado.";
+   }
+
+ //validar contraseña
+  if(strlen($datos['password']) == 0){
+    $errores['password'] = "El campo es obligatorio.";
+  } else {
+    $usuario = buscarUsuarioPorEmail($datos['email']);
+    if( !password_verify($datos['password'], $usuario['password']) ){
+    $errores['password'] = "La contraseña es incorrecta.";
+    }
+  }
+  return $errores;
+}
+
+function loguearUsuario($email){
+  $_SESSION['email'] = $email; //Nos falta iniciar la sesión.
+
+  if(isset($_POST['rememberMe'])){
+    setcookie("email", $email, time()+ 30);
+  }
+}
+function usuarioLogueado(){
+  return isset($_SESSION['email']);
+}
 
 
 

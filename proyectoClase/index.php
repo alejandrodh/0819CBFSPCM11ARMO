@@ -1,4 +1,20 @@
+<?php
+include "functions.php";
+var_dump($_SESSION);
 
+if(isset($_COOKIE['email'])){
+  loguearUsuario($_COOKIE['email']);
+}
+
+if (usuarioLogueado()) {
+  $usuario = buscarUsuarioPorEmail($_SESSION['email']);  // code...
+}
+
+
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -13,10 +29,13 @@
     <div class="container">
       <h1>Home Page</h1>
       <div class="d-flex justify-content-between">
+        <?php if(!usuarioLogueado()): ?>
           <a class="btn btn-success" href="login.php">Login</a>
           <a class="btn btn-warning" href="register.php">Register</a>
-
-
+        <?php else: ?>
+          <span>Hola: <?= $usuario['username'] ?></span>
+          <a class="btn btn-danger" href="logout.php">Logout</a>
+        <?php endif ?>
       </div>
     </div>
 
