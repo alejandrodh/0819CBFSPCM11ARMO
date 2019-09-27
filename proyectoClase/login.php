@@ -14,6 +14,11 @@
 
 include "functions.php";
 
+if(usuarioLogueado()){
+  header("Location:index.php");
+  exit;
+}
+
 if($_POST){
   $errores = validarLogin($_POST);
   var_dump($errores);

@@ -17,8 +17,8 @@ function validarRegistro($datos){
   if(strlen($datosFinales['userName']) == 0){
     $errores['userName'] = "El campo es obligatorio.";
   } else if( !ctype_alpha($datosFinales['userName'])){
-    $errores['userName'] = "Por favor ingrese caracteres alfabéticos.";
-  }
+    $errores['userName'] = "Por favor ingrese caracteres alfabéticos sin espacios.";
+  } //Si queremos validar números y espacios dentro del campo necesitamos una expresión regular y la función de php que la evalue. La función es preg_match(). En nuestro caso: preg_match($regExpr, $datosFinales['userName']); // TODO: Pasar la expresión regular.
 
   //validar email
   if(strlen($datosFinales['email']) == 0){
@@ -46,6 +46,18 @@ function validarRegistro($datos){
     //Validar TYC
     if(!isset($datosFinales['tyc'])){
       $errores['tyc'] = "Por favor acepte los términos y condiciones.";
+    } // TODO: incluir el tyc dentro del json.
+
+    //Validar errores en la carga de la imagen de perfil.
+    if(strlen($_FILES['avatar']['name']) == 0){
+      $errores['avatar'] = "Por favor suba una imagen de perfil.";
+    } else {
+      $ext = pathinfo($_FILES["avatar"]['name'], PATHINFO_EXTENSION);
+
+      if($ext !== "jpg" && $ext !== "png" && $ext !== "jpeg"){
+        $errores['avatar'] = "El archivo debe ser una imagen de tipo .jpg, .jpeg, .png";
+      }
+
     }
 
   return $errores;
@@ -124,12 +136,23 @@ function loguearUsuario($email){
 
   if(isset($_POST['rememberMe'])){
     //Si el usuario tildó "recordarme" vamos a crear la cookie y guardar su email.
-    setcookie("email", $email, time()+ 30);
+    setcookie("email", $email, time()+ 60 * 60);
   }
 }
+
 function usuarioLogueado(){
   return isset($_SESSION['email']);
 }
+
+function usuariosRegistrados(){
+  $json = file_get_contents("db.json");
+  $data = json_decode($json, true);
+  $usuarios = $data['usuarios'];
+
+  return $usuarios;
+}
+
+
 
 
 

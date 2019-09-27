@@ -8,15 +8,10 @@
         },
         {
             "id": 2,
-            "username": "ale",
-            "email": "ale@dh.com",
-            "password": "$2y$10$z4dwpMphD7rzejwJ1f1l8u71w1rikMhznsQwl9sdgbxYIXhr0YOaC"
-        },
-        {
-            "id": 3,
-            "username": "ale",
-            "email": "ale@dh.com",
-            "password": "$2y$10$C98meAMBT4qi.lpGdoU2yuY8uOMTaobFhkjdAPaYQLztanvoeDGsO"
+            "username": "Karly",
+            "email": "karly@dh.com",
+            "password": "$2y$10$pMuPiJ3dOvFw4Jzbl4cpJu59QggCNdterkHjdYn2.ThIPtVKWuiHy"
         }
-    ]
+    ],
+    "productos": []
 }

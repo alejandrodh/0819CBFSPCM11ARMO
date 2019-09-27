@@ -12,6 +12,12 @@
   //  3.4) Redirigir al usuario a la página de inicio.
 
 include "functions.php";
+
+if(usuarioLogueado()){
+  header("Location:index.php");
+  exit;
+}
+
 $errores = [];
 $userNameOk = "";
 $emailOk = "";
@@ -28,15 +34,17 @@ if($_POST){
     $usuario = crearUsuario();
     // var_dump($usuario);
     // exit;
-    guardarUsuario($usuario);
+    guardarUsuario($usuario); //Guardaremos en un archivo .json.–
 
     // var_dump($_FILES);
     // exit;
     $ext = pathinfo($_FILES["avatar"]['name'], PATHINFO_EXTENSION);
     move_uploaded_file($_FILES["avatar"]['tmp_name'], "avatar/". $_POST['userName']. "." . $ext);
 
-    header("Location:index.php");
-    exit;
+    loguearUsuario($_POST['email']);
+
+    header("Location:index.php"); //Redirecciona.
+    exit; //Siempre después de una redirección.
   }
 
 }
@@ -114,6 +122,11 @@ if($_POST){
           <div class="form-group">
             <label for="avatar">Imagen de perfil</label>
             <input name="avatar" type="file" id="avatar" class="form-control-file">
+            <small id="emailHelp" class="form-text text-danger">
+              <?php if(isset($errores['avatar'])) :?>
+                <?= $errores['avatar'] ?>
+              <?php endif ?>
+            </small>
           </div>
           <div class="form-group form-check">
             <?php if(isset($_POST['tyc'])): ?>

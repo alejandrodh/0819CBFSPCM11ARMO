@@ -1,6 +1,10 @@
 <?php
 include "functions.php";
-//var_dump($_SESSION); //Para ver que realmente está cargado el dato en sesión.
+
+if(!usuarioLogueado()){
+  header("Location:index.php");
+  exit;
+}
 
 if(isset($_COOKIE['email'])){
   //Si está seteada la cookie es porque el usuario tildó recordarme. Vamos a loguerarlo desde la cookie.
@@ -8,9 +12,11 @@ if(isset($_COOKIE['email'])){
 }
 
 if (usuarioLogueado()) {
-  $usuario = buscarUsuarioPorEmail($_SESSION['email']);  // code...
+  $usuario = buscarUsuarioPorEmail($_SESSION['email']);
+  $usuarios = usuariosRegistrados();
+  // var_dump($usuarios);
+  // exit;
 }
-
 
 
 
@@ -24,11 +30,11 @@ if (usuarioLogueado()) {
    <!-- Bootstrap CSS -->
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
    <link rel="stylesheet" href="css/master.css">
-    <title>Home Page</title>
+    <title>Lista de usuarios registrados</title>
   </head>
   <body>
     <div class="container">
-      <h1>Home Page</h1>
+      <h1>Lista de usuarios registrados</h1>
       <div class="d-flex justify-content-between">
         <?php if(!usuarioLogueado()): ?>
           <a class="btn btn-success" href="login.php">Login</a>
@@ -37,11 +43,40 @@ if (usuarioLogueado()) {
           <div class="">
             <img class="avatar" src="avatar/<?= $usuario['username'] ?>.jpg" alt="<?= $usuario['username'] ?>">
             <span>Hola: <?= $usuario['username'] ?></span>
-            <a href="usuarios.php">ver usuarios</a>
           </div>
-          <a class="btn btn-danger" href="logout.php">Logout</a>
+          <div class="">
+            <a href="index.php">Home</a>
+            <a class="btn btn-danger" href="logout.php">Logout</a>
+          </div>
         <?php endif ?>
       </div>
+
+      <h2>Lista</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">userName</th>
+            <th scope="col">email</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php foreach ($usuarios as $usuario): ?>
+            <tr>
+              <th scope="row"><?= $usuario['id']?></th>
+              <td><?= $usuario['username']?></td>
+              <td><?= $usuario['email']?></td>
+              <td>
+                <a class="btn btn-warning" href="#">editar</a>
+              </td>
+            </tr>
+          <?php endforeach ?>
+
+
+        </tbody>
+      </table>
+
     </div>
 
 
