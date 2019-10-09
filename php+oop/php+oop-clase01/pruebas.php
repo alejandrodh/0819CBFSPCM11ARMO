@@ -15,12 +15,6 @@ $ale->setMascota($mascota);
 $ale->addHobbie("fútbol");
 
 var_dump($ale);
-//
-// echo $ale->getNombre();
-// echo $ale->getEmail();
 
-echo $ale->getMascota()->getNombre();
-
-foreach ($ale->getAmigos() as $amigo) {
-  echo $amigo->getNombre();
-}
+echo $ale->getNombre();
+echo $ale->getEmail();
