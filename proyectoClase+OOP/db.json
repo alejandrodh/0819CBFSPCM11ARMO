@@ -1,0 +1,29 @@
+{
+  "usuarios": [
+    {
+      "id": 1,
+      "username": "ale",
+      "email": "ale@dh.com",
+      "password": "$2y$10$Hd35v8se0MIYhdzyeiCXuej8T5j6yNmgWWJSWJowLgelMFvSiqevq"
+    },
+    {
+      "id": 2,
+      "username": "Karly",
+      "email": "karly@dh.com",
+      "password": "$2y$10$pMuPiJ3dOvFw4Jzbl4cpJu59QggCNdterkHjdYn2.ThIPtVKWuiHy"
+    },
+    {
+      "id": 3,
+      "username": "gonza",
+      "email": "gonza@dh.com",
+      "password": "$2y$10$PmOr89IahQrCCrDW73ll7uNYvoGG7sodWFJVEwwDjVRWpIkIz3ADS"
+    },
+    {
+      "id": 4,
+      "username": "nacho",
+      "email": "nacho@dh.com",
+      "password": "$2y$10$ivq8S4volHU3m6g2mxiwg.ZKzC5lHMSUpyQECUxVgbknii2Io6pcC"
+    }
+  ],
+  "productos": []
+}
