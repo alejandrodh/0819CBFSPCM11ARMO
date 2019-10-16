@@ -11,7 +11,7 @@
   //  3.3) Guardar su imagen de perfil
   //  3.4) Redirigir al usuario a la página de inicio.
 
-include "functions.php";
+// include "functions.php";
 include "init.php";
 
 
@@ -21,14 +21,14 @@ if($auth->usuarioLogueado()){
 }
 
 $errores = [];
-$userNameOk = "";
+$usernameOk = "";
 $emailOk = "";
 
 if($_POST){
-  $errores = validarRegistro($_POST);
+  $errores = Validador::validarRegistro($_POST);
   //var_dump($_POST, $errores);
 
-  $userNameOk = trim($_POST['userName']); //El control lo hacemos en el campo input.
+  $usernameOk = trim($_POST['username']); //El control lo hacemos en el campo input.
   $emailOk = trim($_POST['email']);
 
 
@@ -43,7 +43,7 @@ if($_POST){
     // var_dump($_FILES);
     // exit;
     $ext = pathinfo($_FILES["avatar"]['name'], PATHINFO_EXTENSION);
-    move_uploaded_file($_FILES["avatar"]['tmp_name'], "avatar/". $_POST['userName']. "." . $ext);
+    move_uploaded_file($_FILES["avatar"]['tmp_name'], "avatar/". $_POST['username']. "." . $ext);
 
     $auth->loguearUsuario($_POST['email']);
 
@@ -80,15 +80,15 @@ if($_POST){
           </ul>
           */ ?>
           <div class="form-group">
-            <label for="userName">User name</label>
-            <?php  if(!isset($errores['userName'])): ?>
-              <input type="text" id="userName" class="form-control" name="userName" placeholder="Enter User name" value="<?= $userNameOk ?>">
+            <label for="username">User name</label>
+            <?php  if(!isset($errores['username'])): ?>
+              <input type="text" id="username" class="form-control" name="username" placeholder="Enter User name" value="<?= $usernameOk ?>">
             <?php else: ?>
-              <input type="text" id="userName" class="form-control" name="userName" placeholder="Enter User name" value="">
+              <input type="text" id="username" class="form-control" name="username" placeholder="Enter User name" value="">
             <?php endif ?>
             <small id="emailHelp" class="form-text text-danger">
-              <?php if(isset($errores['userName'])) :?>
-                <?= $errores['userName'] ?>
+              <?php if(isset($errores['username'])) :?>
+                <?= $errores['username'] ?>
               <?php endif ?>
             </small>
           </div>

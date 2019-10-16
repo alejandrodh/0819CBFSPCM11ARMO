@@ -14,12 +14,29 @@ class Usuario
   {
     global $json;
 
-    $this->id = $json->nextId();
-    $this->username = $datos['userName'];
+    if(isset($datos['id'])){
+      $this->id = $datos['id'];
+      $this->password = $datos['password'];
+    } else {
+      $this->id = $json->nextId();
+      $this->password = password_hash($datos['password'], PASSWORD_DEFAULT);
+    }
+    $this->username = $datos['username'];
     $this->email = $datos['email'];
-    $this->password = password_hash($datos['password'], PASSWORD_DEFAULT);
+
   }
 
-
+  public function getId(){
+      return $this->id;
+  }
+  public function getUsername(){
+      return $this->username;
+  }
+  public function getEmail(){
+      return $this->email;
+  }
+  public function getPassword(){
+      return $this->password;
+  }
 
 }

@@ -1,29 +1,47 @@
 {
-  "usuarios": [
-    {
-      "id": 1,
-      "username": "ale",
-      "email": "ale@dh.com",
-      "password": "$2y$10$Hd35v8se0MIYhdzyeiCXuej8T5j6yNmgWWJSWJowLgelMFvSiqevq"
-    },
-    {
-      "id": 2,
-      "username": "Karly",
-      "email": "karly@dh.com",
-      "password": "$2y$10$pMuPiJ3dOvFw4Jzbl4cpJu59QggCNdterkHjdYn2.ThIPtVKWuiHy"
-    },
-    {
-      "id": 3,
-      "username": "gonza",
-      "email": "gonza@dh.com",
-      "password": "$2y$10$PmOr89IahQrCCrDW73ll7uNYvoGG7sodWFJVEwwDjVRWpIkIz3ADS"
-    },
-    {
-      "id": 4,
-      "username": "nacho",
-      "email": "nacho@dh.com",
-      "password": "$2y$10$ivq8S4volHU3m6g2mxiwg.ZKzC5lHMSUpyQECUxVgbknii2Io6pcC"
-    }
-  ],
-  "productos": []
+    "usuarios": [
+        {
+            "id": 1,
+            "username": "ale",
+            "email": "ale@dh.com",
+            "password": "$2y$10$Hd35v8se0MIYhdzyeiCXuej8T5j6yNmgWWJSWJowLgelMFvSiqevq"
+        },
+        {
+            "id": 2,
+            "username": "Karly",
+            "email": "karly@dh.com",
+            "password": "$2y$10$pMuPiJ3dOvFw4Jzbl4cpJu59QggCNdterkHjdYn2.ThIPtVKWuiHy"
+        },
+        {
+            "id": 3,
+            "username": "gonza",
+            "email": "gonza@dh.com",
+            "password": "$2y$10$PmOr89IahQrCCrDW73ll7uNYvoGG7sodWFJVEwwDjVRWpIkIz3ADS"
+        },
+        {
+            "id": 4,
+            "username": "nacho",
+            "email": "nacho@dh.com",
+            "password": "$2y$10$ivq8S4volHU3m6g2mxiwg.ZKzC5lHMSUpyQECUxVgbknii2Io6pcC"
+        },
+        {
+            "id": 5,
+            "username": "Alex",
+            "email": "alex@dh.com",
+            "password": "$2y$10$bkh4UR\/1b9Z7EW0jstUZgu0q8jKmYnsDSNs5Kh1C7nsVxvhfZFKGm"
+        },
+        {
+            "id": 6,
+            "username": "pedro",
+            "email": "pedro@dh.com",
+            "password": "$2y$10$\/clJ8p1cTZvqOYYwdBoZwew.VZcr\/VpuTqwZqOsZsYhhi4MCHDC.K"
+        },
+        {
+            "id": 7,
+            "username": "Debbie",
+            "email": "debbie@dh.com",
+            "password": "$2y$10$2WZCRiopg6Y.QJtboFxu8O34.HXJX6YVJa9RKLCxUexohzQcBPXbO"
+        }
+    ],
+    "productos": []
 }

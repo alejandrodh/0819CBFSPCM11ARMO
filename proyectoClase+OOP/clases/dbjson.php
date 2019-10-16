@@ -24,7 +24,15 @@ class DbJson
 
   public function guardarUsuario($user){
     $usuarios = json_decode($this->json, true);
-    $usuarios['usuarios'][] = $user;
+
+    $usuarioEnArray = [
+      "id" => $user->getId(),
+      "username" => $user->getUsername(),
+      "email" => $user->getEmail(),
+      "password" => $user->getPassword(),
+    ];
+
+    $usuarios['usuarios'][] = $usuarioEnArray;
 
     $json = json_encode($usuarios, JSON_PRETTY_PRINT);
     file_put_contents("db.json", $json);
@@ -34,8 +42,9 @@ class DbJson
     $usuarios = json_decode($this->json, true);
 
     foreach ($usuarios['usuarios'] as $usuario) {
-      if($usuario['email']=== $email){
-        return $usuario;
+      if($usuario['email']=== $email){ //Array;
+        $usuario = new Usuario($usuario);
+        return $usuario; //Objeto;
       }
     }
     return null;

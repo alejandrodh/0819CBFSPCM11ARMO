@@ -12,7 +12,7 @@
 //  3.3) Redirigimos al usuario a la página de inicio mostrando cambios por estar logueado.
 
 
-include "functions.php";
+// include "functions.php";
 include "init.php";
 
 if($auth->usuarioLogueado()){
@@ -21,7 +21,7 @@ if($auth->usuarioLogueado()){
 }
 
 if($_POST){
-  $errores = validarLogin($_POST);
+  $errores = Validador::validarLogin($_POST);
   var_dump($errores);
 
   if(!$errores){

@@ -4,6 +4,7 @@
 include "clases/dbjson.php";
 include "clases/usuario.php";
 include "clases/auth.php";
+include "clases/validador.php";
 
 $data = "db.json";
 $auth = new Auth;

@@ -1,5 +1,5 @@
 <?php
-include "functions.php";
+//include "functions.php";
 //var_dump($_SESSION); //Para ver que realmente está cargado el dato en sesión.
 include "init.php";
 
@@ -36,8 +36,8 @@ if ($auth->usuarioLogueado()) {
           <a class="btn btn-warning" href="register.php">Register</a>
         <?php else: ?>
           <div class="">
-            <img class="avatar" src="avatar/<?= $usuario['username'] ?>.jpg" alt="<?= $usuario['username'] ?>">
-            <span>Hola: <?= $usuario['username'] ?></span>
+            <img class="avatar" src="avatar/<?= $usuario->getUsername() ?>.jpg" alt="<?= $usuario->getUsername() ?>">
+            <span>Hola: <?= $usuario->getUsername()?></span>
             <a href="usuarios.php">ver usuarios</a>
           </div>
           <a class="btn btn-danger" href="logout.php">Logout</a>
