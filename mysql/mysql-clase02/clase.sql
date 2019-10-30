@@ -56,7 +56,23 @@ INNER JOIN series ON seasons.serie_id = series.id
 INNER JOIN genres ON series.genre_id = genres.id
 INNER JOIN actor_episode ON episodes.id = actor_episode.episode_id
 INNER JOIN actors ON actor_episode.actor_id = actors.id
-GROUP BY episodes.title
+GROUP BY episodes.title;
 
 
+-- 4 Mostrar las películas (movies) con sus géneros (genres) si los posee y
+-- los géneros con todas las películas que le corresponden, 
+-- ambas en una sola consulta, sin ordenamiento.
+-- Mostrar: title y name.
 
+-- Mostrar también este informe utilizando un ordenamiento por título 
+-- de la película (title), y por nombre del género (name).
+-- Luego viceversa, por nombre del género (name) y por título de película (title).
+(SELECT movies.title, movies.genre_id, genres.name as genero
+FROM movies
+LEFT JOIN genres ON movies.genre_id = genres.id)
+UNION
+(SELECT movies.title, movies.genre_id, genres.name
+FROM genres
+LEFT JOIN movies ON movies.genre_id = genres.id)
+-- ORDER BY genero;
+ORDER BY title;
