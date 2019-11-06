@@ -26,4 +26,16 @@ Terminado el módulo MySQL retomamos el punto 10.
 4. Craamos la clase `DbMysql` (dbmysql.php) para que extienda de `Db` (db.php).
 5. Escribimos los métodos de la clase  `DbMysql` (dbmysql.php).
 6. Creamos una base de datos con una tabla `usuarios` para probar el sistema.
-7. Finalemnte creamos un archivo `config.json` para manejar los datos de configuración por fuera de la clase `DbJson` y así evitar que cada miembro del equipo pise y commitee la clase `DbMysql` con sus propios datos de acceso a `PDO`.
+7. Finalemnte creamos un archivo `config.json` en la ruta ppal del proyecto para manejar los datos de configuración por fuera de la clase `DbJson` y así evitar que cada miembro del equipo pise y commitee la clase `DbMysql` con sus propios datos de acceso a `PDO`.
+
+
+### Formato del archivo `config.json`
+```
+{
+  "dbname": "armo11",
+  "host": "127.0.0.1",
+  "port": "3306",
+  "user": "root",
+  "password": "root"
+}
+```
