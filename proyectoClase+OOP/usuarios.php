@@ -16,7 +16,7 @@ if(isset($_COOKIE['email'])){
 if (usuarioLogueado()) {
   $usuario = buscarUsuarioPorEmail($_SESSION['email']);
   //$usuarios = usuariosRegistrados();
-  $usuarios = $json->usuariosRegistrados();
+  $usuarios = $db->usuariosRegistrados();
   // var_dump($usuarios);
   // exit;
 }

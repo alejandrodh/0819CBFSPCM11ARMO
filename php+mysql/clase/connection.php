@@ -2,7 +2,7 @@
 
 //PDO es una libreria de php.
 
-$dsn = "mysql:host=127.0.0.1;dbname=movies_db;port=3306";
+$dsn = "mysql:host=127.0.0.1;dbname=armo11;port=3306";
 $user = "root";
 $pass = "root"; //Para Linux/ Apple
 //$pass = ""; Para Windows
@@ -16,4 +16,5 @@ try {
 } catch (\Exception $e) {
   echo $e->getMessage();
   //var_dump($e);
+  
 }

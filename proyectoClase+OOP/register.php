@@ -38,7 +38,7 @@ if($_POST){
      // var_dump($usuario);
      // exit;
     //guardarUsuario($usuario); //Guardaremos en un archivo .json.–
-    $json->guardarUsuario($usuario); //Guardaremos en un archivo .json usando Objetos.
+    $db->guardarUsuario($usuario); //Guardaremos en un archivo .json usando Objetos.
 
     // var_dump($_FILES);
     // exit;

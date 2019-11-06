@@ -2,7 +2,7 @@
 /**
  *
  */
-class DbJson
+class DbJson extends Db
 {
   private $json;
 
@@ -10,7 +10,7 @@ class DbJson
   {
     // //Ver en clase como resolver si el archivo $file no está creado.
     // $this->json = file_get_contents($file);
-  
+
     if(!file_exists($file)){
       $data = ['usuarios'=>[]]; // En caso de que el archivo no exista vamos a encodear al formato incial del .json para que no rompa el login.
       $this->json = json_encode($data);

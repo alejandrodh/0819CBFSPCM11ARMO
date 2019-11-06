@@ -6,7 +6,7 @@
 class Validador
 {
   public static function validarRegistro($datos){
-    global $json;
+    global $db;
 
     $errores = [];
     $datosFinales = [];
@@ -31,7 +31,7 @@ class Validador
       $errores['email'] = "El campo es obligatorio.";
     } else if(!filter_var($datosFinales['email'], FILTER_VALIDATE_EMAIL)){
       $errores['email'] = "Por favor ingrese un email en formato correcto.";
-    }  else if( $json->existeUsuario($datosFinales['email']) ){
+    }  else if( $db->existeUsuario($datosFinales['email']) ){
        $errores['email'] = "El email ya se encuentra registrado.";
      }
 
@@ -70,7 +70,7 @@ class Validador
   }
 
   public static function validarLogin($datos){
-    global $json;
+    global $db;
     $errores = [];
 
     //validar email
@@ -78,7 +78,7 @@ class Validador
       $errores['email'] = "El campo es obligatorio.";
     } else if(!filter_var($datos['email'], FILTER_VALIDATE_EMAIL)){
       $errores['email'] = "Por favor ingrese un email en formato correcto.";
-    } else if( !$json->existeUsuario($datos['email']) ){
+    } else if( !$db->existeUsuario($datos['email']) ){
       $errores['email'] = "El email no se encuentra registrado.";
      }
 
@@ -86,7 +86,7 @@ class Validador
     if(strlen($datos['password']) == 0){
       $errores['password'] = "El campo es obligatorio.";
     } else {
-      $usuario = $json->buscarUsuarioPorEmail($datos['email']);
+      $usuario = $db->buscarUsuarioPorEmail($datos['email']);
       if( !password_verify($datos['password'], $usuario->getPassword()) ){
       $errores['password'] = "La contraseña es incorrecta.";
       }

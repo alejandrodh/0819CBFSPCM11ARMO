@@ -41,6 +41,12 @@
             "username": "Debbie",
             "email": "debbie@dh.com",
             "password": "$2y$10$2WZCRiopg6Y.QJtboFxu8O34.HXJX6YVJa9RKLCxUexohzQcBPXbO"
+        },
+        {
+            "id": 8,
+            "username": "Dario",
+            "email": "daro@dh.com",
+            "password": "$2y$10$zRmBzGFSaR4sDVOD\/eolKuKhs8IRzChg4Do0AyzXVHXE\/lxDiV.EO"
         }
     ],
     "productos": []
