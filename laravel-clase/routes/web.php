@@ -43,3 +43,16 @@ Route::get('/esPar/{numero}', function($numero){
     return "El núermo NO es par";
   }
 });
+
+
+
+Route::get('/peliculas', "PeliculaController@index");
+Route::get('/pelicula/{id}', 'PeliculaController@show');
+Route::get('/actores', 'ActorController@index');
+
+
+
+
+
+
+//
