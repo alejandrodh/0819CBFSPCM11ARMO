@@ -8,6 +8,7 @@
         <li> Rating: {{ $pelicula->rating }} </li>
         <li> Premios: {{ $pelicula->awards }} </li>
         <li> Fecha de estreno: {{ $pelicula->release_date }} </li>
+        <li> Genéro: {{$pelicula->generos->name}}</li>
 
       </ul>
 

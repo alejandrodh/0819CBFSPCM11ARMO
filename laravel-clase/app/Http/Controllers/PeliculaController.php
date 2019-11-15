@@ -36,8 +36,8 @@ class PeliculaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        //
+    {   //Resolver como traer los generos.
+        return view('addmovie');
     }
 
     /**
@@ -46,9 +46,37 @@ class PeliculaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $req)
     {
-        //
+        $rules = [
+            "titulo" => "required|max:200",
+            "genre" => "required",
+        ];
+
+        $messages = [
+          "titulo.required" => "El campo :attribute es obligatorio.",
+          "genre.required" => "No te olvides."
+        ];
+
+        $this->validate($req, $rules, $messages);
+
+        $path = $req->file("image")->store('public/poster'); //Acá guarda en el file sistem
+        $file = basename($path);
+
+        $pelicula = new Movie;
+
+        $pelicula->title = $req->titulo;
+        $pelicula->awards = $req->awards;
+        $pelicula->release_date = $req->release_date;
+        $pelicula->rating = $req->rating;
+        $pelicula->genre_id = $req->genre;
+        $pelicula->length = $req->length;
+        $pelicula->image = $file;
+
+        // dd($req, $pelicula);
+        $pelicula->save();
+
+        return redirect('addmovie');
     }
 
     /**

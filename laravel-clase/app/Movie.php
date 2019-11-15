@@ -12,4 +12,9 @@ class Movie extends Model
 
     public $guarded = [];  //Permite cargar todos los campos
     //public $fillable = []; //Bloquea todos los campos.
+
+
+    public function generos(){
+      return $this->belongsTo('App\Genre', 'genre_id');
+    }
 }

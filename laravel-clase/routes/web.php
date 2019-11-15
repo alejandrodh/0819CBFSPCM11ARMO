@@ -49,8 +49,8 @@ Route::get('/esPar/{numero}', function($numero){
 Route::get('/peliculas', "PeliculaController@index");
 Route::get('/pelicula/{id}', 'PeliculaController@show');
 Route::get('/actores', 'ActorController@index');
-
-
+Route::get('addmovie','PeliculaController@create');
+Route::post('addmovie','PeliculaController@store');
 
 
 

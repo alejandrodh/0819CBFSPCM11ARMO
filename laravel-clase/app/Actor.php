@@ -12,4 +12,5 @@ class Actor extends Model
     return $this->first_name . ", " . $this->last_name;
   }
 
+
 }
