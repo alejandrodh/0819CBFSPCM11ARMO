@@ -36,7 +36,7 @@ Resolverlo con las instrucciones de: https://laravel-news.com/laravel-5-4-key-to
 13. Agregar en los archivos de modelos el atributo `protected $guarded = []` para permitir a Laravel escribir en la db cuadno se envíe info por formularios. Para comodidad, en el modelo `User` hay que cambiar `protected $fillable =  [.....]` por `protected $guarded = []`.
 
 
-//====================================================================  
+====================================================================  
 =======================================
 
 
