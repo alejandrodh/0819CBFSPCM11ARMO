@@ -39,8 +39,19 @@ Faker: https://github.com/fzaninotto/Faker
 13. Agregar en los archivos de modelos el atributo `protected $guarded = []` para permitir a Laravel escribir en la db cuadno se envíe info por formularios. Para comodidad, en el modelo `User` hay que cambiar `protected $fillable =  [.....]` por `protected $guarded = []`.
 
 
-====================================================================  
-=======================================
+**=============================================================**
+
+## Pasos para instalar el Proyecto cuando clonamos desde un repo
+1. Descargar el repositorio
+2. Por consola ingresar a la carpeta del proyecto descargado.
+3. Ejecutar `composer install` para que composer descargue todas las carpetas y paquetes necesarios para correr Laravel.
+4. Revisar que exista archivo `.env`. Si no está copiar el archivo `.env-example` y eliminar `-example`
+5. Chequear que el archivo .env tenga valores la posicion `APP_KEY`. Si no está hay que crearla con el comando `php artisan key:generate`
+6. Revisar la información de conexión a la db. Son las posicones `DB_ `.
+7. Ejecutar `php artisan serve` para iniciar el servidor web.
+
+
+**=============================================================**
 
 
 
