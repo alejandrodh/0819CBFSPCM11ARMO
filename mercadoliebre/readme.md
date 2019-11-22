@@ -18,16 +18,16 @@ Faker: https://github.com/fzaninotto/Faker
 
 
 ### ¿Y por dónde empezamos?  
-1.- Crear la estructura del proyecto: descargamos laravel vía composer.
-2.- Crear la base de datos.
-3.- Configurar .env con los datos de la base.
-4.- Crear la estructura de login/ registro con `php artisan make:auth`.
-5.- Crear storage link `php artisan storage:link`.
-6.- Crear los modelos (menos el de Users que ya viene con `auth`) y todos los archivos relacionados usando `php artisan make:model Nombredelmodelo -a` (Creará el modelo, la migration, el controlador con todas las funciones std y la factory).
-7.- Revisar si la migración de Users tiene los datos necesarios. Sino hacer una migración para modificar la tabla.
-8.- Completar las migraciones de las restantes tablas.
-9.- Correr migraciones.
-10.- Si aparece el error ```SQLSTATE[42000]: Syntax error or access violation: 1071 Specified key was too long; max key length is 767 bytes (SQL: alter table `users` add unique `users_email_unique`(`email`))```
+1. Crear la estructura del proyecto: descargamos laravel vía composer.
+2. Crear la base de datos.
+3. Configurar .env con los datos de la base.
+4. Crear la estructura de login/ registro con `php artisan make:auth`.
+5. Crear storage link `php artisan storage:link`.
+6. Crear los modelos (menos el de Users que ya viene con `auth`) y todos los archivos relacionados usando `php artisan make:model Nombredelmodelo -a` (Creará el modelo, la migration, el controlador con todas las funciones std y la factory).
+7. Revisar si la migración de Users tiene los datos necesarios. Sino hacer una migración para modificar la tabla.
+8. Completar las migraciones de las restantes tablas.
+9. Correr migraciones.
+10. Si aparece el error ```SQLSTATE[42000]: Syntax error or access violation: 1071 Specified key was too long; max key length is 767 bytes (SQL: alter table `users` add unique `users_email_unique`(`email`))```
 Resolverlo con las instrucciones de: https://laravel-news.com/laravel-5-4-key-too-long-error
 11. Si sucedió el error del paso anterior correr `php artisan migrate:fresh` para eliminar todas las tablas y que corran las migraciones todas desde cero.
 12. Crear las Foreign Keys si no lo hicieron anteriormente y correr migraciones. `php artisan migrate`.
