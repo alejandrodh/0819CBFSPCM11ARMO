@@ -15,7 +15,16 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->timestamps();
+            $table->string('name', 200);
+            $table->text('description');
+            $table->bigInteger('category_id')->unsigned(); //FK de category.
+            $table->string('featured_img', 300);
+            $table->smallInteger('quantity');
+            $table->decimal('price', 8, 2);
+            $table->bigInteger('user_id')->unsigned(); //FK de users.
+            $table->timestamps(); //Son las columnas created_at y updated_at
+
+            //Crear FK.
         });
     }
 
