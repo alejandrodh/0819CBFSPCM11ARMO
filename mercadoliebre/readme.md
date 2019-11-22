@@ -1,3 +1,45 @@
+## Pasos para crear un proyecto Laravel
+Vamos crear un ecommerce:
+
+Pensemos la estructura mínima de base de datos que podemos necesitar. Pensemos los modelos y los posibles cruces de datos entre si.
+- User.
+- Product:
+	tiene un usuario que lo carga/ dueño del producto.
+	tienen una categoría.
+- Category.
+- Cart:
+	Tiene productos.
+	Tiene un usuario que está comprando.
+
+## Links de consulta
+Revisen siempre la documentación de Laravel. Es muy buena y está muy clara.
+Laravel: https://laravel.com/docs/5.8/  
+Faker: https://github.com/fzaninotto/Faker  
+
+## ¿Y por dónde empezamos?
+1.- Crear la estructura del proyecto: descargamos laravel vía composer.
+2.- Crear la base de datos.
+3.- Configurar .env con los datos de la base.
+4.- Crear la estructura de login/ registro con `php artisan make:auth`.
+5.- Crear storage link `php artisan storage:link`.
+6.- Crear los modelos (menos el de Users que ya viene con `auth`) y todos los archivos relacionados usando `php artisan make:model Nombredelmodelo -a` (Creará el modelo, la migration, el controlador con todas las funciones std y la factory).
+7.- Revisar si la migración de Users tiene los datos necesarios. Sino hacer una migración para modificar la tabla.
+8.- Completar las migraciones de las restantes tablas.
+9.- Correr migraciones.
+10.- Si aparece el error ```SQLSTATE[42000]: Syntax error or access violation: 1071 Specified key was too long; max key length is 767 bytes (SQL: alter table `users` add unique `users_email_unique`(`email`))```
+Resolverlo con las instrucciones de: https://laravel-news.com/laravel-5-4-key-too-long-error
+11. Si sucedió el error del paso anterior correr `php artisan migrate:fresh` para eliminar todas las tablas y que corran las migraciones todas desde cero.
+12. Crear las Foreign Keys si no lo hicieron anteriormente y correr migraciones. `php artisan migrate`.
+11. Crear fakers/ seeders. Ojo con las foreign keys al momento de correr los seeders.
+12. Correr los seeders con `php artisan db:seed`.
+13. Agregar en los archivos de modelos el atributo `protected $guarded = []` para permitir a Laravel escribir en la db cuadno se envíe info por formularios. Para comodidad, en el modelo `User` hay que cambiar `protected $fillable =  [.....]` por `protected $guarded = []`.
+
+
+//====================================================================  
+=======================================
+
+
+
 <p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
 
 <p align="center">
