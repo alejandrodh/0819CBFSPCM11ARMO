@@ -17,7 +17,7 @@ Laravel: https://laravel.com/docs/5.8/
 Faker: https://github.com/fzaninotto/Faker  
 
 
-### ¿Y por dónde empezamos?  
+### ¿Y por dónde empezamos?  
 1. Crear la estructura del proyecto: descargamos laravel vía composer.
 2. Crear la base de datos.
 3. Configurar .env con los datos de la base.
