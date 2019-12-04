@@ -1,0 +1,7 @@
+.nota .destacado .negrita {
+  color: red;
+}
+
+.nota:hover .destacado .negrita {
+  color: green;
+}
