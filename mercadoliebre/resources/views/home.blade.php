@@ -1,23 +1,32 @@
 @extends('layouts.app')
+@section('customcss')
+  <link rel="stylesheet" href="css/home.css">
+@endsection
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
+    <h1>Home</h1>
+    <h2>Lista de productos</h2>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+    @forelse ($products as $product)
+      <article>
+        <img src="/storage/product/{{$product->featured_img}}" alt="">
+        <h4 class="name">{{$product->name}}</h4>
+        <p class="description">{{$product->description}}</p>
+        <p class="price">Precio: {{$product->price}}$</p>
+        <form class="" action="/addtocart" method="post">
+          @csrf
+          <input type="hidden" name="id" value="{{$product->id}}">
+          <button type="submit" class="btn btn-success">Agregar al carrito</a>
+        </form>
 
-                    You are logged in!
-                </div>
-            </div>
-        </div>
-    </div>
+
+      </article>
+    @empty
+      <p>No hay productos disponibles</p>
+    @endforelse
+
+
+
 </div>
 @endsection
