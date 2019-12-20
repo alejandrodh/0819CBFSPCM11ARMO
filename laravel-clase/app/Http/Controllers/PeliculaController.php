@@ -126,4 +126,18 @@ class PeliculaController extends Controller
     {
         //
     }
+
+    public function apiAll(){
+      $peliculas = Movie::all();
+
+      return $peliculas;
+    }
+
+    public function apiMovie($id){
+      $pelicula = Movie::find($id);
+
+      return $pelicula;
+    }
+
+
 }
